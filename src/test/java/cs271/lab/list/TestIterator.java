@@ -74,8 +74,8 @@ public class TestIterator {
     final var i = list.iterator();
     while (i.hasNext()) {
         if (i.next() == 77) {
-            //i.remove(); // TODO Question: What happens if you use list.remove(Integer.valueOf(77))?
-            list.remove(Integer.valueOf(77));
+            i.remove(); // TODO Question: What happens if you use list.remove(Integer.valueOf(77))?
+            //list.remove(Integer.valueOf(77));
         }
     }
 assertEquals(List.of(33, 44,55,66), list);
