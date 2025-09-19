@@ -127,6 +127,7 @@ public class TestList {
 
   @Test
   public void testAddAll() {
+    list.addAll(List.of(33,77,44,77,55,77,66));
     // TODO in a single statement using addAll and List.of,
     // add items to the list to make the following assertions pass
     // (without touching the assertions themselves)
@@ -150,6 +151,7 @@ public class TestList {
     list.add(77);
     list.add(66);
     // TODO in a single statement using removeAll and List.of,
+    list.removeAll(List.of(33,77,44,55,66));
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
     assertEquals(3, list.size());
@@ -165,6 +167,7 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
+    list.retainAll(List.of(77));
     // TODO in a single statement using retainAll and List.of,
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
@@ -181,6 +184,9 @@ public class TestList {
     list.add(55);
     list.add(77);
     list.add(66);
+    list.set(1, 99);
+    list.set(3, 99);
+    list.set(5, 9);
     // TODO use the set method to change specific elements in the list
     // such that the following assertions pass
     // (without touching the assertions themselves)
@@ -205,6 +211,6 @@ public class TestList {
     list.add(66);
     // TODO fix the arguments in the subList method so that the assertion
     // passes
-    assertEquals(List.of(44, 77, 55), list.subList(0, 0));
+    assertEquals(List.of(44, 77, 55), list.subList(2, 5));
   }
 }
