@@ -61,25 +61,53 @@ public class TestPerformance {
 
   @Test
   public void testArrayListAddRemove() {
+    long startTime = System.nanoTime();
     for (var r = 0; r < REPS; r++) {
-      arrayList.add(0, 77);
-      arrayList.remove(0);
+      arrayList.add(1, 49);
+      arrayList.remove(1);
     }
+    long endTime = System.nanoTime();
+    System.out.println("LinkedList Add/Remove Time: "+ (endTime - startTime)/1_000_000.0 + "ms");
   }
 
   @Test
   public void testLinkedListAccess() {
     var sum = 0L;
+    long startTime = System.nanoTime();
     for (var r = 0; r < REPS; r++) {
       sum += linkedList.get(r % SIZE);
     }
+      long endTime = System.nanoTime();
+      System.out.println("LinkedList Access Time: "+ (endTime - startTime)/1_000_000.0 + "ms");
   }
 
   @Test
   public void testArrayListAccess() {
     var sum = 0L;
+    long startTime = System.nanoTime();
     for (var r = 0; r < REPS; r++) {
       sum += arrayList.get(r % SIZE);
     }
+      long endTime = System.nanoTime();
+      System.out.println("ArrayList Access Time: "+ (endTime - startTime)/1_000_000.0 + "ms");
   }
+
+public void testPerformanceWithDifferentSizes(){
+      int[] sizes = {10,100,1000,10000};
+      for (int size : sizes){
+          System.out.println( "Running tests for size= " + size);
+          arrayList=new ArrayList<>(size);
+          linkedList=new LinkedList<>();
+          for ( int i = 0; i < size; i++){
+              arrayList.add(i);
+              linkedList.add(i);
+          }
+          testLinkedListAddRemove();
+          testArrayListAddRemove();
+          testLinkedListAccess();
+          testArrayListAccess();
+          System.out.println("-----------");
+      }
+
+}
 }
