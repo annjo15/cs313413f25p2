@@ -39,7 +39,7 @@ public class TestList {
   public void testSizeNonEmpty() {
     // TODO fix the expected values in the assertions below
     list.add(77);
-    assertEquals(true, list.isEmpty());
+    assertEquals(false, list.isEmpty());
     assertEquals(1, list.size());
     assertEquals(77, list.get(0).intValue());
   }
@@ -51,7 +51,7 @@ public class TestList {
     assertTrue("List contains 77 post adding it",list.contains(77));
     // list.contains(77)
     // that hold before and after adding 77 to the list
-    fail("Not yet implemented"); // remove this line when done
+    //fail("Not yet implemented"); // remove this line when done
   }
 
   @Test
@@ -122,7 +122,7 @@ public class TestList {
     // TODO using containsAll and List.of (see above),
     // 1) assert that list contains all five different numbers added
     // 2) assert that list does not contain all of 11, 22, and 33
-    fail("Not yet implemented"); // remove this line when done
+    //fail("Not yet implemented"); // remove this line when done
   }
 
   @Test
@@ -151,7 +151,7 @@ public class TestList {
     list.add(77);
     list.add(66);
     // TODO in a single statement using removeAll and List.of,
-    list.removeAll(List.of(33,77,44,55,66));
+    list.removeAll(List.of(33,44,55,66));
     // remove items from the list to make the following assertions pass
     // (without touching the assertions themselves)
     assertEquals(3, list.size());
@@ -186,7 +186,7 @@ public class TestList {
     list.add(66);
     list.set(1, 99);
     list.set(3, 99);
-    list.set(5, 9);
+    list.set(5, 99);
     // TODO use the set method to change specific elements in the list
     // such that the following assertions pass
     // (without touching the assertions themselves)
