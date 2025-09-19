@@ -42,12 +42,21 @@ public class TestPerformance {
     linkedList = null;
   }
 
+  private long recordTime(Runnable test){
+      long startTime = System.nanoTime();
+      test.run();
+      return System.nanoTime() - startTime;
+  }
+
   @Test
   public void testLinkedListAddRemove() {
+    long startTime = System.nanoTime();
     for (var r = 0; r < REPS; r++) {
-      linkedList.add(0, 77);
-      linkedList.remove(0);
+      linkedList.add(1, 40);
+      linkedList.remove(1);
     }
+    long endTime = System.nanoTime();
+    System.out.println("LinkedList Add/Remove Time: "+ (endTime - startTime)/1_000_000.0 + "ms");
   }
 
   @Test
